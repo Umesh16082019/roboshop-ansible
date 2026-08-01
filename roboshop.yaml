@@ -5,6 +5,7 @@
     sg_id: sg-0a1041abc3d14180f
     ami_id: ami-02b64aa047cb5edf5
     env1: dev
+    region: us-east-1
     instances:
     - mongodb
     - catalogue
@@ -21,6 +22,8 @@
         Component: "{{ item }}"
         Environment: "{{ env1 }}"
         Name: "{{ item }}-{{ env1 }}"
+    environment:
+      AWS_DEFAULT_REGION: "{{ region }}" 
     loop: "{{ instances }}"
     register: ec2_output
 
