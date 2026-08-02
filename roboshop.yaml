@@ -19,9 +19,9 @@
       image_id: "{{ ami_id }}"
       name: "{{ item }}-{{ env1 }}"
       user_data: |
-      #!/bin/bash
-      systemctl stop firewalld
-      systemctl disable firewalld
+        #!/bin/bash
+        systemctl stop firewalld
+        systemctl disable firewalld
       tags:
         Project: roboshop
         Component: "{{ item }}"
